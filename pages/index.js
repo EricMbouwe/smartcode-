@@ -1,8 +1,8 @@
-import axios from 'axios';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Latest from '../components/Latest';
+import { fetchArticles } from '../utils/requests';
 
 export default function Home({ results }) {
   console.log(results);
@@ -20,25 +20,8 @@ export default function Home({ results }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  //const genre = context.query;
-
-  const res = await axios.post(
-    'http://eventregistry.org/api/v1/article/getArticles',
-    {
-      action: 'getArticles',
-      keyword: 'Barack Obama',
-      articlesPage: 1,
-      articlesCount: 100,
-      articlesSortBy: 'date',
-      articlesSortByAsc: false,
-      articlesArticleBodyLen: -1,
-      resultType: 'articles',
-      dataType: ['news', 'pr'],
-      apiKey: '0f854066-6c1a-4d17-be7a-82f74a68cb52',
-      forceMaxDataTimeWindow: 31,
-    },
-  );
+export async function getServerSideProps() {
+  const res = await fetchArticles();
 
   if (!res) {
     return {

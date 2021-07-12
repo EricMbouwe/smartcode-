@@ -72,7 +72,6 @@ const MainImage = styled.div`
   align-items: flex-end;
   padding: 30px;
   background-color: #000;
-  opacity: 0.95;
   z-index: 1;
 
   &:before {
@@ -86,7 +85,7 @@ const MainImage = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.7;
     z-index: -1;
   }
 `;
@@ -105,7 +104,7 @@ const Wrap = styled.div`
   align-items: flex-end;
   padding: 30px;
   background-color: #000;
-  opacity: 0.95;
+  z-index: 1;
 
   &:before {
     content: '';
@@ -118,7 +117,7 @@ const Wrap = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.7;
     z-index: -1;
   }
 `;
